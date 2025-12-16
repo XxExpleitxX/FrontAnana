@@ -5,6 +5,7 @@ import VentaService from "../../services/VentaService";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useMemo } from "react";
 
 const GrillaPedidos = () => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const GrillaPedidos = () => {
   const [ventaAEliminar, setVentaAEliminar] = useState<Venta | null>(null);
   const [fechaDesde, setFechaDesde] = useState("");
   const [fechaHasta, setFechaHasta] = useState("");
+  const [estadoFiltro, setEstadoFiltro] = useState("");
+  const [paginaActual, setPaginaActual] = useState(1);
   // Modal eliminar por fecha
   const [modalDesde, setModalDesde] = useState("");
   const [modalHasta, setModalHasta] = useState("");
@@ -36,13 +39,38 @@ const GrillaPedidos = () => {
     fetchVentas();
   }, []);
 
-  const ventasFiltradas = ventas.filter((venta) => {
-    const fechaVenta = new Date(venta.fecha);
-    const desde = fechaDesde ? new Date(fechaDesde) : null;
-    const hasta = fechaHasta ? new Date(fechaHasta) : null;
+  const estadosDisponibles = useMemo(() => {
+    const estados = ventas
+      .map((venta) => venta.estadoVenta?.toUpperCase())
+      .filter((estado): estado is string => Boolean(estado));
+    return Array.from(new Set(estados));
+  }, [ventas]);
 
-    return (!desde || fechaVenta >= desde) && (!hasta || fechaVenta <= hasta);
-  });
+    useEffect(() => {
+    setPaginaActual(1);
+  }, [fechaDesde, fechaHasta, estadoFiltro]);
+
+  const ventasFiltradas = useMemo(() => {
+    return ventas.filter((venta) => {
+      const fechaVenta = new Date(venta.fecha);
+      const desde = fechaDesde ? new Date(fechaDesde) : null;
+      const hasta = fechaHasta ? new Date(fechaHasta) : null;
+      const estado = estadoFiltro ? estadoFiltro.toUpperCase() : "";
+
+      const coincideFecha = (!desde || fechaVenta >= desde) &&
+        (!hasta || fechaVenta <= hasta);
+      const coincideEstado =
+        !estado || venta.estadoVenta?.toUpperCase() === estado;
+
+      return coincideFecha && coincideEstado;
+    });
+  }, [ventas, fechaDesde, fechaHasta, estadoFiltro]);
+
+  const pageSize = 20;
+  const totalPages = Math.max(1, Math.ceil(ventasFiltradas.length / pageSize));
+  const paginaAjustada = Math.min(paginaActual, totalPages);
+  const inicio = (paginaAjustada - 1) * pageSize;
+  const ventasPaginadas = ventasFiltradas.slice(inicio, inicio + pageSize);
 
   const handleDelete = async () => {
     if (ventaAEliminar && ventaAEliminar.id !== null) {
@@ -66,46 +94,61 @@ const GrillaPedidos = () => {
   return (
     <div className="tabla-ventas-container">
       <div className="barra-superior">
-        <button
-          className="btn-agregar"
-          onClick={() => navigate("/formVenta/0")}
-        >
-          + Agregar Venta
-        </button>
-        <label>Desde: </label>
-        <input
-          type="date"
-          value={fechaDesde}
-          onChange={(e) => setFechaDesde(e.target.value)}
-          placeholder="Desde"
-        />
-        <label>Hasta: </label>
-        <input
-          type="date"
-          value={fechaHasta}
-          onChange={(e) => setFechaHasta(e.target.value)}
-          placeholder="Hasta"
-        />
-        {(fechaDesde || fechaHasta) && (
+         <div className="acciones-izquierda">
           <button
-            className="btn-limpiar-filtro"
-            onClick={() => {
-              setFechaDesde("");
-              setFechaHasta("");
-            }}
-            style={{ marginLeft: "1rem" }}
+            className="btn-agregar"
+            onClick={() => navigate("/formVenta/0")}
           >
-            Limpiar filtro
+            + Agregar Venta
           </button>
-        )}
-        {/* Botón para abrir modal visual de eliminar pedidos por fecha */}
         <button
-          className="btn-eliminar-pedidos"
-          onClick={() => setShowModalEliminarPorFecha(true)}
-          style={{ marginLeft: "1rem" }}
-        >
-          Eliminar pedidos
-        </button>
+            className="btn-eliminar-pedidos"
+            onClick={() => setShowModalEliminarPorFecha(true)}
+          >
+            Eliminar pedidos
+          </button>
+        </div>
+        <div className="filtros">
+          <label>Desde: </label>
+          <input
+            type="date"
+            value={fechaDesde}
+            onChange={(e) => setFechaDesde(e.target.value)}
+            placeholder="Desde"
+          />
+          <label>Hasta: </label>
+          <input
+            type="date"
+            value={fechaHasta}
+            onChange={(e) => setFechaHasta(e.target.value)}
+            placeholder="Hasta"
+          />
+          <label>Estado:</label>
+          <select
+            value={estadoFiltro}
+            onChange={(e) => setEstadoFiltro(e.target.value)}
+            className="select-estado"
+          >
+            <option value="">Todos</option>
+            {estadosDisponibles.map((estado) => (
+              <option key={estado} value={estado}>
+                {estado}
+              </option>
+            ))}
+          </select>
+          {(fechaDesde || fechaHasta || estadoFiltro) && (
+            <button
+              className="btn-limpiar-filtro"
+              onClick={() => {
+                setFechaDesde("");
+                setFechaHasta("");
+                setEstadoFiltro("");
+              }}
+            >
+              Limpiar filtro
+            </button>
+          )}
+        </div>
       </div>
 
       <table className="tabla-ventas">
@@ -121,7 +164,7 @@ const GrillaPedidos = () => {
           </tr>
         </thead>
         <tbody>
-          {ventasFiltradas.map((venta) => (
+          {ventasPaginadas.map((venta) => (
             <tr key={venta.id}>
               <td>{venta.id}</td>
               <td>{venta.user?.usuario}</td>
@@ -161,6 +204,26 @@ const GrillaPedidos = () => {
           ))}
         </tbody>
       </table>
+
+      <div className="paginador">
+        <button
+          disabled={paginaAjustada === 1}
+          onClick={() => setPaginaActual((prev) => Math.max(prev - 1, 1))}
+        >
+          Anterior
+        </button>
+        <span>
+          Página {paginaAjustada} de {totalPages}
+        </span>
+        <button
+          disabled={paginaAjustada === totalPages}
+          onClick={() =>
+            setPaginaActual((prev) => Math.min(prev + 1, totalPages))
+          }
+        >
+          Siguiente
+        </button>
+      </div>
 
       {/* Modal visual para eliminar pedidos por fecha */}
       {showModalEliminarPorFecha && (

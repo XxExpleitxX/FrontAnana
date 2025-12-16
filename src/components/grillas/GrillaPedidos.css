@@ -8,8 +8,8 @@
 
 .barra-superior {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 16px;
     margin-bottom: 15px;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,6 +21,21 @@
     color: #4b3a8f;
 }
 
+.acciones-izquierda {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+
 input[type="date"] {
     padding: 8px 12px;
     border-radius: 8px;
@@ -28,6 +43,16 @@ input[type="date"] {
     font-size: 14px;
     background-color: white;
 }
+
+.select-estado {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 14px;
+    min-width: 160px;
+}
+
 
 .btn-agregar {
     background-color: #8771c3;
@@ -186,6 +211,22 @@ input[type="date"] {
     /* morado más oscuro */
 }
 
+.btn-limpiar-filtro {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-limpiar-filtro:hover {
+    background-color: #7f8c8d;
+}
+
+
 .estado-concluido {
     color: green;
     font-weight: bold;
@@ -195,6 +236,37 @@ input[type="date"] {
     color: red;
     font-weight: bold;
 }
+
+.paginador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.paginador button {
+    background-color: #8771c3;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.paginador button:disabled {
+    background-color: #d7c9f3;
+    cursor: not-allowed;
+    color: #6d5cb3;
+}
+
+.paginador button:not(:disabled):hover {
+    background-color: #6d5cb3;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -207,8 +279,16 @@ input[type="date"] {
         align-items: stretch;
     }
 
+    .acciones-izquierda,
+    .filtros {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+
     .btn-agregar,
-    input[type="date"] {
+    input[type="date"],
+    .select-estado {
         width: 100%;
         max-width: none;
     }
