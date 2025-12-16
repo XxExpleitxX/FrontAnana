@@ -3,7 +3,7 @@ import { Alert, Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import Categoria from "../../entities/Categoria";
 import CategoriaService from "../../services/CategoriaService";
-import "./FormularioCategoria.css";
+import "./formularioCategoria.css";
 
 const FormularioCategoria = () => {
   const navigate = useNavigate();
