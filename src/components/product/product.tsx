@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -34,7 +34,6 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { categoria, marca } = useParams();
 
-  const filtroInicialAplicado = useRef(false);
   const productoService = new ProductoService();
   const url = import.meta.env.VITE_API_URL;
   const baseImageUrl = import.meta.env.VITE_URL_IMAGES;
@@ -99,28 +98,33 @@ const Products = () => {
 
   // --- Aplicar filtro desde la URL (solo una vez) ---
   useEffect(() => {
-    if (!filtroInicialAplicado.current) {
-      const normalizar = (texto: string) =>
-        texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+    const normalizarDesdeUrl = (texto?: string) =>
+      decodeURIComponent(texto ?? "")
+        .replace(/-/g, " ")
+        .trim();
 
-      if (categoria) {
-        setFiltroCategoria(normalizar(categoria));
-        setFiltroMarca("");
-      } else if (marca) {
-        setFiltroMarca(normalizar(marca));
-        setFiltroCategoria("");
-      }
+    if (categoria) {
+      const categoriaNormalizada = normalizarDesdeUrl(categoria).toLowerCase();
+      const categoriaValida = categorias.find(
+        (cat) => cat.denominacion.toLowerCase() === categoriaNormalizada
+      );
+      setFiltroCategoria(categoriaValida?.denominacion || categoriaNormalizada);
+      setFiltroMarca("");
+    } else if (marca) {
+      const marcaNormalizada = normalizarDesdeUrl(marca).toLowerCase();
+      const marcaValida = marcas.find(
+        (marcaItem) => marcaItem.toLowerCase() === marcaNormalizada
+      );
 
-      filtroInicialAplicado.current = true;
+      setFiltroMarca(marcaValida || marcaNormalizada);
+      setFiltroCategoria("");
     }
-  }, [categoria, marca]);
+  }, [categoria, categorias, marca, marcas]);
 
   // --- Fetch inicial y refetch cuando cambian filtros o búsqueda ---
   useEffect(() => {
-    if (filtroInicialAplicado.current) {
-      setPage(0);
-      fetchProductos(true);
-    }
+    setPage(0);
+    fetchProductos(true);
   }, [busqueda, filtroMarca, filtroCategoria, ordenPrecio]);
 
   // --- Inicializar categorías y marcas al montar ---

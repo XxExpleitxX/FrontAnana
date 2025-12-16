@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Modal, Button, Form } from "react-bootstrap";
-import "./GrillaPromociones.css";
+import "./grillaPromociones.css";
 import Promocion from "../../entities/Promocion";
 import PromocionService from "../../services/PromocionService";
 import ConfigService from "../../services/ConfigService";
