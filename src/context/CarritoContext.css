@@ -1,0 +1,20 @@
+
+/* Media Queries para el Carrito */
+@media (max-width: 576px) {
+    .carrito {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .carrito {
+        width: 20%; /* Ancho del 80% en pantallas medianas */
+    }
+}
+
+@media (min-width: 768px) {
+    .carrito {
+        width: 25%; /* Ancho del 25% en pantallas grandes */
+    }
+
+}

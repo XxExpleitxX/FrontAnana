@@ -1,0 +1,63 @@
+/* Centra todo el formulario vertical y horizontal */
+.contenedor-promocion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 2rem;
+}
+
+/* Formulario más angosto y centrado */
+.formulario {
+  background-color: white;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Título del formulario */
+.titulo-formulario {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Campos del formulario */
+.formulario .form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.formulario .form-control {
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Botón centrado */
+.contenedor-boton-centrado {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn-crear-promocion {
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-crear-promocion:hover {
+  background-color: #732d91;
+}

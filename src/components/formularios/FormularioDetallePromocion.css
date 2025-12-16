@@ -1,0 +1,123 @@
+/* Contenedor general */
+.container {
+  max-width: 800px;
+  margin: 3rem auto;
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+.container h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+  margin-bottom: 1.5rem;
+}
+.dAgregados{
+    margin-top: -1.5rem;
+}
+/* Etiquetas */
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Campos de texto y número */
+.form-control {
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Lista desplegable (autocomplete) */
+.position-relative {
+  position: relative;
+}
+
+.list-group {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 5;
+}
+
+.list-group-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.list-group-item:hover {
+  background-color: #f2f2f2;
+}
+
+/* Botones */
+.btn {
+  font-size: 1rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+button[type="button"],
+.btn-primary {
+  background-color: #9b59b6;
+  border: none;
+  color: white;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover,
+.btn-primary:hover {
+  background-color: #884ea0;
+}
+
+.btn-secondary {
+  background-color: #666;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}
+
+/* Mensajes */
+.text-info {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #5d6d7e;
+  text-align: center;
+}
+.cantidad{
+    margin-top: 3.5rem;
+}
+
+/* Lista de detalles agregados */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: -2rem;
+}
+
+ul li {
+  background-color: #f8f8f8;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #9b59b6;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}

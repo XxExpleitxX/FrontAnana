@@ -1,0 +1,1 @@
+export type EstadoVenta = "PENDIENTE" | "CONCLUIDO";

@@ -1,0 +1,233 @@
+.tabla-ventas-container {
+    padding: 20px;
+    background-color: #f5f3ff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.barra-superior p {
+    margin: 0;
+    font-weight: bold;
+    color: #4b3a8f;
+}
+
+input[type="date"] {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+}
+
+.btn-agregar {
+    background-color: #8771c3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: fit-content;
+}
+
+.btn-agregar:hover {
+    background-color: #6d5cb3;
+}
+
+.tabla-ventas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 600px;
+}
+
+.tabla-ventas th,
+.tabla-ventas td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    word-break: break-word;
+}
+
+.tabla-ventas th {
+    background-color: #d7c9f3;
+    color: #4b3a8f;
+}
+
+.btn-ver-venta,
+.btn-editar-venta,
+.btn-eliminar-venta {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn-ver-venta {
+    color: #e67e22;
+}
+
+.btn-ver-venta:hover {
+    color: #d35400;
+}
+
+.btn-editar-venta {
+    color: #4b3a8f;
+}
+
+.btn-editar-venta:hover {
+    color: #6d5cb3;
+}
+
+.btn-eliminar-venta {
+    color: #e74c3c;
+}
+
+.btn-eliminar-venta:hover {
+    color: #c0392b;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+/* Overlay que oscurece el fondo y cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    /* Fijo para que cubra toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    z-index: 1050;
+    /* Alto para que esté por encima de todo */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1060;
+}
+
+.btn-eliminar-pedidos {
+    background-color: #e74c3c;
+    /* rojo vibrante */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-eliminar-pedidos:hover {
+    background-color: #c0392b;
+    /* rojo oscuro */
+}
+
+.btn-cancelar {
+    background-color: #95a5a6;
+    /* gris claro */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #7f8c8d;
+    /* gris medio */
+}
+
+.btn-aceptar {
+    background-color: #6c63ff;
+    /* morado brillante */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-aceptar:hover {
+    background-color: #5548c8;
+    /* morado más oscuro */
+}
+
+.estado-concluido {
+    color: green;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    color: red;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .tabla-ventas-container {
+        padding: 15px;
+    }
+
+    .barra-superior {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-agregar,
+    input[type="date"] {
+        width: 100%;
+        max-width: none;
+    }
+
+    .tabla-ventas {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tabla-ventas th,
+    .tabla-ventas td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .btn-editar-venta,
+    .btn-eliminar-venta {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,121 @@
+.titulo-detalle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario-contenedor {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* 🔄 NUEVO: Estilo para mostrar los filtros lado a lado */
+.filtros-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+/* 🔄 Ajustes opcionales para el input */
+.filtro-individual {
+  flex: 1;
+  position: relative;
+  min-width: 200px !important;
+}
+
+.hay-productos {
+  position: absolute;
+  z-index: 500 !important;
+  width: 100% !important;
+  max-height: 150px !important;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-limpiar {
+  background-color: darksalmon !important;
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-80%);
+  padding: 0 6px;
+  line-height: 1;
+  border-radius: 50%;
+}
+
+.btn-guardar {
+  width: 150px;
+  background-color: #81c784 !important;
+  color: white;
+  border: none;
+}
+
+.btn-volver {
+  margin-top: 0.6rem;
+  width: 150px;
+  background-color: #9575cd !important;
+  color: white;
+  border: none;
+}
+
+.texto-error {
+  color: red;
+  text-align: center;
+}
+
+/* Cada detalle */
+.detalle-item {
+  max-width: 800px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  display: center;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+}
+.detalle-item:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.detalle-info {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.detalle-nombre {
+  font-weight: 700;
+  max-width: 250px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.detalle-cantidad,
+.detalle-precio {
+  color: #555;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Botón eliminar */
+.detalle-item button {
+  background-color: #7e57c2;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.detalle-item button:hover {
+  background-color: #5e35b1;
+}

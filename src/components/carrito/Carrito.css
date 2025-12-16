@@ -1,0 +1,285 @@
+/* CARRITO FLOTANTE */
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'EB Garamond', serif;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* CABECERA */
+.cart-header {
+  position: relative; /* Para que los elementos absolutos se ubiquen respecto al header */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el título horizontalmente */
+  gap: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  background-color: #fff;
+  height: 50px;
+  z-index: 10;
+}
+
+.cart-header h2 {
+  font-size: 20px;
+  color: #8771c3;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Ícono del carrito */
+.cart-header svg {
+  position: absolute;
+  left: 10px; /* Fija el ícono a la izquierda */
+}
+
+/* BOTÓN CERRAR */
+.btn-close {
+  position: absolute;
+  top: 50%;               /* Centra verticalmente */
+  right: 10px;            /* A la derecha del header */
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: color 0.3s;
+}
+
+.btn-close:hover {
+  color: #c71c24;
+}
+
+/* LISTA DE PRODUCTOS CON SCROLL */
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  /* Espacio antes del footer */
+}
+
+/* ITEMS DEL CARRITO */
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.cart-item div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cart-item img {
+  border-radius: 4px;
+  max-width: 60px;
+}
+
+/* BOTONES DE SUMAR / RESTAR */
+/* Contenedor de los botones sumar/restar */
+.botones-cambiar {
+  display: flex;
+  gap: 5px;
+  /* Espacio entre los botones */
+}
+
+/* Estilo de los botones */
+.btn-cambiar {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  padding: 5px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.btn-cambiar:hover {
+  border-color: #f18d9b;
+}
+
+/* Contenedor de observaciones */
+.observaciones-container p {
+  font-size: 15px; /* Más pequeño */
+  margin: 5px 0;   /* Separación ligera */
+  color: #555;     /* Opcional: un gris más suave */
+}
+
+/* Textarea de observaciones */
+.observaciones-container textarea {
+  width: 100%;       /* Ocupa todo el ancho del contenedor */
+  min-height: 60px;
+  padding: 8px;
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;   /* Texto más pequeño dentro del textarea */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+
+/* TOTAL + MÉTODOS DE PAGO FIJOS */
+/* Footer */
+.cart-footer {
+  padding: 15px 20px;
+  border-top: 2px solid #f0f0f0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+  position: relative; /* mantener referencia para otros elementos dentro si hace falta */
+}
+
+/* BOTÓN WHATSAPP FLOTANTE FUERA DEL FOOTER */
+.btn-whatsapp {
+  position: fixed;   /* respecto a la pantalla */
+  bottom: 20px;      /* separación del borde inferior */
+  right: 20px;       /* separación del borde derecho */
+  z-index: 1000;     /* encima de todo */
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  background-color: #25d366;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+/* Total */
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-monto {
+  color: #007c99;
+  font-size: 20px;
+}
+
+/* BOTONES DE ACCIÓN */
+.btn-mercado-pago,
+.btn-efectivo {
+  width: 100%;
+  padding: 7px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 2px;
+  font-size: 15px;;
+}
+
+.btn-mercado-pago {
+  background-color: #009ee3;
+  color: #fff;
+}
+
+.btn-mercado-pago:hover {
+  background-color: #0077b6;
+}
+
+.btn-efectivo {
+  background-color: #a5d6a7;
+  color: #333;
+}
+
+.btn-efectivo:hover {
+  background-color: #81c784;
+}
+
+.acciones-carrito {
+  display: flex;
+  justify-content: space-between; /* los separa a los extremos */
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.btn-vaciar {
+  background-color: transparent;
+  color: #c62828;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-vaciar:hover {
+  background-color: #fbe9e7;
+  border-color: #ef9a9a;
+  color: #b71c1c;
+}
+
+.checkbox-envio {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Agrega esto a Carrito.css */
+.precio-item {
+  display: block;
+  margin-top: 4px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.detalles-promocion {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.promo-label {
+  background-color: #8771c3;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .cart {
+    width: 70vw;
+    border-radius: 0;
+  }
+
+  .btn-close {
+    font-size: 28px;
+  }
+}

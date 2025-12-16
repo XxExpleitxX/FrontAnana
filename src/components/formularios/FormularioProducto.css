@@ -1,0 +1,159 @@
+/* FormularioProducto.css */
+.titulo-product{
+  margin-top: -1rem;
+  font-size: 2rem !important;
+  color: #11254f !important;
+  text-align: center;
+}
+.form-prod-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.formulario-producto {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 950px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezado */
+.formulario-producto h3 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de grupos de formulario */
+.form-group-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Grupos individuales */
+.form-group {
+  margin-bottom: 0;
+}
+
+/* Etiquetas */
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Campos de entrada comunes */
+.form-control, 
+.form-select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #2d3436;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+/* Textarea específico */
+.form-control.textarea-field {
+  height: 120px;
+  resize: vertical;
+  min-height: 100px;
+  padding: 0.8rem;
+}
+
+/* Focus state */
+.form-control:focus, 
+.form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+/* Campo deshabilitado */
+.bg-light {
+  background-color: #f5f6fa !important;
+  color: #7f8c8d !important;
+}
+
+/* Sección de botones */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ecf0f1;
+}
+
+/* Botones */
+.btn-lila-prod, 
+.btn-volver-prod {
+  padding: 0.6rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-lila-prod {
+  background-color: #9f6cbe;
+  color: white;
+}
+
+.btn-volver-prod {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+.btn-lila-prod:hover {
+  background-color: #8b48b4;
+  transform: translateY(-1px);
+}
+
+.btn-volver-prod:hover {
+  background-color: #a1aab3;
+}
+
+/* Alertas */
+.alert {
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-group-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .formulario-producto {
+    padding: 1.5rem;
+  }
+  
+  .form-buttons {
+    justify-content: center;
+  }
+}
+
+/* Clase para campos que deben ocupar ancho completo */
+.full-width {
+  grid-column: span 2;
+}

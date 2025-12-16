@@ -1,0 +1,128 @@
+.tabla-usuarios-container {
+    padding: 20px;
+    background-color: #f5f3ff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    /* para scroll horizontal en pantallas pequeñas */
+}
+
+.input-filtro-us {
+    text-align: center;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.btn-agregar-us {
+    background-color: #8771c3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: fit-content;
+}
+
+.btn-agregar-us:hover {
+    background-color: #6d5cb3;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 600px;
+    /* para evitar que se rompa el contenido */
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    word-break: break-word;
+}
+
+.tabla-usuarios th {
+    background-color: #d7c9f3;
+    color: #4b3a8f;
+}
+
+.btn-editar-us,
+.btn-eliminar-us {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn-editar-us {
+    color: #4b3a8f;
+}
+
+.btn-editar-us:hover {
+    color: #6d5cb3;
+}
+
+.btn-eliminar-us {
+    color: #e74c3c;
+}
+
+.btn-eliminar-us:hover {
+    color: #c0392b;
+}
+
+.barra-superior-us {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .tabla-usuarios-container {
+        padding: 15px;
+    }
+
+    .barra-superior-us {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-filtro-us,
+    .btn-agregar-us {
+        width: 100%;
+        max-width: none;
+    }
+
+    .tabla-usuarios {
+        min-width: 100%;
+        /* permitir scroll si es necesario */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .btn-editar-us,
+    .btn-eliminar-us {
+        font-size: 1rem;
+    }
+}

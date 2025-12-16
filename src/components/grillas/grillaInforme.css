@@ -1,0 +1,111 @@
+.grilla-informe-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fb;
+  min-height: 100vh;
+  color: #333;
+}
+
+.grilla-informe-container h1 {
+  text-align: center;
+  color: #5a4e7c;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.grilla-informe-container h3 {
+  text-align: center;
+  color: #5a4e7c;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.grid-informe {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.separador {
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 1rem 0;
+  border: none;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+label {
+  font-weight: 600;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="date"] {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-color: #a586ba;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #a586ba;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #a586ba;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8d6d9c;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .grid-informe {
+    gap: 2rem;
+  }
+
+  .columna {
+    min-width: 250px;
+    padding: 1.5rem;
+  }
+}

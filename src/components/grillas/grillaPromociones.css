@@ -1,0 +1,193 @@
+.tabla-promos-container {
+  padding: 20px;
+  background-color: #fef8ff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.barra-superior-promos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-agregar-promo {
+  background-color: #a586ba;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar-promo:hover {
+  background-color: #8d6d9c;
+}
+
+.tabla-promos {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 600px;
+}
+
+.tabla-promos th,
+.tabla-promos td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  word-break: break-word;
+}
+
+.tabla-promos th {
+  background-color: #e3d0f3;
+  color: #4b3a8f;
+}
+
+.promo-vencida {
+  color: #E57373;
+}
+
+.btn-editar-promo,
+.btn-eliminar-promo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.btn-editar-promo {
+  color: #4b3a8f;
+}
+
+.btn-editar-promo:hover {
+  color: #6d5cb3;
+}
+
+.btn-eliminar-promo {
+  color: #e74c3c;
+}
+
+.btn-eliminar-promo:hover {
+  color: #c0392b;
+}
+/* Estilos para el modal */
+
+.modal-content {
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/* Encabezado del modal */
+/* Fuerza centrado real del modal en viewport */
+.modal-dialog {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.modal-header {
+  background-color: #007c99;
+  color: white;
+  border-bottom: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.modal-title {
+  color: #000 !important;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body .form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body .form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.modal-body .form-control:focus {
+  border-color: #007c99;
+  box-shadow: 0 0 0 0.2rem rgba(0, 124, 153, 0.25);
+}
+
+/* Footer del modal */
+.modal-footer {
+  border-top: none;
+  padding: 1rem 1.5rem;
+}
+
+/* Botones */
+.modal-footer .btn {
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.modal-footer .btn-secondary-mod {
+  background-color: #6c757d;
+  border: none;
+}
+
+.modal-footer .btn-primary-mod {
+  background-color: #007c99;
+  border: none;
+}
+
+.modal-footer .btn-primary-mod:hover {
+  background-color: #005f73;
+}
+
+
+@media (max-width: 768px) {
+  .tabla-promos-container {
+    padding: 15px;
+  }
+
+  .barra-superior-promos {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-agregar-promo {
+    width: 100%;
+  }
+
+  .tabla-promos {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabla-promos th,
+  .tabla-promos td {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .btn-editar-promo,
+  .btn-eliminar-promo {
+    font-size: 1rem;
+  }
+}

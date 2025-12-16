@@ -1,0 +1,238 @@
+.formulario-contenedor {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo-venta {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.btn-prod {
+  background-color: #c27ac2;
+  border: none;
+  color: #555;
+  margin-top: 1.8rem
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+}
+
+button,
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+button:hover,
+.btn:hover {
+  opacity: 0.9;
+}
+
+.text-observaciones {
+  font-weight: 600;
+  color: #555;
+}
+
+.textarea-observaciones {
+  width: 100%; 
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  resize: vertical;
+  /* permite redimensionar solo en altura */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.textarea-observaciones:focus {
+  border-color: #c27ac2;
+  /* mismo tono que tu botón "Agregar producto" */
+  box-shadow: 0 0 6px rgba(194, 122, 194, 0.5);
+  outline: none;
+}
+
+.contenedor-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.Tabla-detalle {
+  width: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.Tabla-detalle th,
+.Tabla-detalle td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 20px;
+}
+
+
+.bi-pencil,
+.bi-trash {
+  font-size: 18px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.bi-pencil:hover {
+  color: #4caf50;
+}
+
+.bi-trash:hover {
+  color: #e53935;
+}
+
+.mb-12 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-header {
+  background-color: #f1f1f1;
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Estilo para el modal */
+.modal-confirmacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* altura completa de la pantalla */
+  z-index: 9999 !important;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  /* sin fondo si no querés opacidad */
+  pointer-events: none;
+  /* evita que bloquee clics fuera del modal si no se maneja bien */
+}
+
+.modal-confirmacion .modal-dialog {
+  margin: 0;
+  /* quitar márgenes automáticos */
+  pointer-events: all;
+  /* asegura interacción dentro del modal */
+}
+
+
+.modal-confirmacion .modal-dialog {
+  max-width: 350px;
+  /* modal pequeño */
+  width: 90%;
+  margin: auto;
+
+}
+
+.modal-confirmacion .modal-content {
+  background-color: #ffffff !important;
+  /* color sólido pastel */
+  border-radius: 10px;
+  border: 2px solid #f18d9b;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  /* sombra para destacarlo */
+  opacity: 1;
+  /* aseguramos que no sea translúcido */
+}
+
+/* Header del modal */
+.modal-confirmacion .modal-header {
+  background-color: #c27a92;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  justify-content: center;
+}
+
+/* Título */
+.modal-confirmacion .modal-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  color: #000000 !important;
+  width: 100%;
+}
+
+/* Cuerpo */
+.modal-confirmacion .modal-body {
+  font-family: 'EB Garamond', serif;
+  color: #333;
+  padding: 15px 10px;
+}
+
+/* Footer del modal */
+.modal-confirmacion .modal-footer {
+  background-color: #fce4ec;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  justify-content: space-evenly;
+}
+
+/* Botón eliminar */
+.modal-confirmacion .btn-danger {
+  background-color: #f18d9b;
+  border: none;
+  padding: 6px 15px;
+}
+
+.modal-confirmacion .btn-danger:hover {
+  background-color: #aa5f72;
+}
+.textarea-observaciones {
+  width: 100% !important;             /* ocupa todo el ancho disponible */
+  min-height: 150px;       /* más alta por defecto */
+  resize: vertical;        /* permitir solo agrandar verticalmente */
+  padding: 20px;           /* más espacio interno */
+  font-size: 1rem;         /* tamaño de texto legible */
+  border-radius: 8px;      /* esquinas suaves */
+  border: 1px solid #ccc;  /* borde gris claro */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textarea-observaciones:focus {
+  border-color: #4a3f9c;           /* color principal al hacer focus */
+  box-shadow: 0 0 6px rgba(74, 63, 156, 0.3);
+  outline: none;
+}
+
+.text-observaciones {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #4a3f9c;  /* mismo color que los títulos */
+}
