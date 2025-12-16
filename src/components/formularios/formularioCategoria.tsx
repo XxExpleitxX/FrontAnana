@@ -23,12 +23,18 @@ const FormularioCategoria = () => {
     const fetchCategoria = async () => {
       if (categoriaId > 0) {
         try {
-          const response = await fetch(`${url}categoria/${categoriaId}`, {
-            signal,
-          });
+          const response = await fetch(`${url}categoria/${categoriaId}`, { signal });
           if (!response.ok) throw new Error("No se pudo cargar la categoría");
           const data = await response.json();
-          setCategoria(data);
+          setCategoria({
+            id: data.id ?? null,
+            denominacion: data.categoriaDenominacion ?? data.denominacion ?? "",
+            descCategoria:
+              data.descuentoCategoria ??
+              data.descuento ??
+              data.porcentajeDescuento ??
+              0,
+          });
         } catch (err) {
           if (!signal.aborted) {
             setError(err instanceof Error ? err.message : "Error al cargar");
@@ -49,6 +55,14 @@ const FormularioCategoria = () => {
       setError("La denominación es obligatoria");
       return false;
     }
+    if (
+      categoria.descCategoria < 0 ||
+      categoria.descCategoria > 100 ||
+      Number.isNaN(categoria.descCategoria)
+    ) {
+      setError("El descuento debe estar entre 0% y 100%");
+      return false;
+    }
     return true;
   };
 
@@ -59,19 +73,21 @@ const FormularioCategoria = () => {
     setError(null);
 
     try {
+      const categoriaDto = {
+        id: categoria.id,
+        denominacion: categoria.denominacion,
+        descCategoria: categoria.descCategoria,
+      };
+
       if (categoriaId > 0 && categoria.id) {
-        const categoriaDTO = {
-          id: categoria.id,
-          denominacion: categoria.denominacion,
-        };
         await categoriaService.put(
           `${url}categoria`,
           categoria.id,
-          categoriaDTO
+          categoriaDto
         );
         alert("Categoría actualizada correctamente");
       } else {
-        await categoriaService.post(`${url}categoria`, categoria);
+        await categoriaService.post(`${url}categoria`, categoriaDto);
         alert("Categoría creada correctamente");
       }
       navigate("/grillaCategorias");
@@ -106,12 +122,30 @@ const FormularioCategoria = () => {
           />
         </Form.Group>
 
+        <Form.Group controlId="descuentoCategoria">
+          <Form.Label>Descuento de la categoría (%)</Form.Label>
+          <Form.Control
+            type="number"
+            min={0}
+            max={100}
+            step={1}
+            placeholder="Ej: 10"
+            value={categoria.descCategoria}
+            onChange={(e) =>
+              setCategoria({
+                ...categoria,
+                descCategoria: Number(e.target.value) || 0,
+              })
+            }
+          />
+          <Form.Text className="text-muted">
+            Ingresa el porcentaje de descuento que se aplicará a todos los
+            productos de esta categoría.
+          </Form.Text>
+        </Form.Group>
+
         <div className="form-buttons">
-          <Button
-            type="submit"
-            className="btn-guardar-categoria"
-            disabled={isSaving}
-          >
+          <Button type="submit" className="btn-guardar-categoria" disabled={isSaving}>
             {isSaving ? "Guardando..." : "Guardar"}
           </Button>
           <Button

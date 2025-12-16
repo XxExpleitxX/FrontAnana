@@ -58,6 +58,12 @@
     word-break: break-word;
 }
 
+.tabla-categorias .columna-descuento {
+    white-space: nowrap;
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
 .tabla-categorias th {
     background-color: #d7c9f3;
     color: #4b3a8f;

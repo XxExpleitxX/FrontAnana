@@ -28,7 +28,16 @@ const GrillaCategorias = () => {
           categoriaService.getAll(url + "categoria"),
           productoService.getAll(url + "producto"),
         ]);
-        setCategorias(categoriasData);
+        setCategorias(
+          categoriasData.map((categoria) => ({
+            ...categoria,
+            descuentoCategoria:
+              categoria.descCategoria ??
+              (categoria as any).descuento ??
+              (categoria as any).porcentajeDescuento ??
+              0,
+          }))
+        );
         setProductos(productosData);
       } catch (error) {
         console.error("Error al cargar categorías:", error);
@@ -110,6 +119,7 @@ const GrillaCategorias = () => {
         <thead>
           <tr>
             <th>Categoría</th>
+            <th>Descuento</th>
             <th>Productos asignados</th>
             <th>Acciones</th>
           </tr>
@@ -123,6 +133,9 @@ const GrillaCategorias = () => {
             return (
               <tr key={categoria.id ?? categoria.denominacion}>
                 <td>{categoria.denominacion}</td>
+                <td className="columna-descuento">
+                  {categoria.descCategoria ?? 0}%
+                </td>
                 <td>{cantidadProductos}</td>
                 <td>
                   <button
