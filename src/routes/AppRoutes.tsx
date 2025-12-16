@@ -28,6 +28,7 @@ import VentaCliente from "../components/ventaCliente/VentaCliente";
 import GrillaInforme from "../components/grillas/GrillaInforme";
 import VerVenta from "../components/verVenta/VerVenta";
 import GrillaCategorias from "../components/grillas/grillaCategorias";
+import FormularioCategoria from "../components/formularios/formularioCategoria";
 
 const AppRoutes = () => {
   return (
@@ -157,6 +158,15 @@ const AppRoutes = () => {
         element={
           <RoleRoute allowedRoles={["ADMIN"]}>
             <FormularioPromocion />
+          </RoleRoute>
+        }
+      />
+
+      <Route
+        path="/formCategoria/:idCategoria"
+        element={
+          <RoleRoute allowedRoles={["ADMIN"]}>
+            <FormularioCategoria />
           </RoleRoute>
         }
       />

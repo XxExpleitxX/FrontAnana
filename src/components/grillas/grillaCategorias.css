@@ -1,1 +1,106 @@
-/* comentario*/
+.tabla-categorias-container {
+    padding: 20px;
+    background-color: #f5f3ff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.barra-superior-categorias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-agregar-categoria {
+    background-color: #8771c3;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: fit-content;
+}
+
+.btn-agregar-categoria:hover {
+    background-color: #6d5cb3;
+}
+
+.input-filtro-categoria {
+    text-align: center;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+    width: 15rem;
+    box-sizing: border-box;
+}
+
+.tabla-categorias {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 400px;
+}
+
+.tabla-categorias th,
+.tabla-categorias td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    word-break: break-word;
+}
+
+.tabla-categorias th {
+    background-color: #d7c9f3;
+    color: #4b3a8f;
+}
+
+.btn-accion-categoria {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #4b3a8f;
+}
+
+.btn-accion-categoria:hover {
+    color: #6d5cb3;
+}
+
+.btn-eliminar-categoria {
+    color: #e74c3c;
+}
+
+.btn-eliminar-categoria:hover {
+    color: #c0392b;
+}
+
+.btn-eliminar-categoria:disabled {
+    color: #c3c3c3;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .tabla-categorias-container {
+        padding: 15px;
+    }
+
+    .barra-superior-categorias {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-filtro-categoria,
+    .btn-agregar-categoria {
+        width: 100%;
+        max-width: none;
+    }
+}
