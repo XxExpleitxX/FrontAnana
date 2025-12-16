@@ -7,6 +7,7 @@ import {
   faBoxOpen,
   faTags,
   faBell,
+  faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import "./pantallaAdmin.css";
 import { useEffect, useState } from "react";
@@ -112,6 +113,16 @@ const PantallaAdmin = () => {
             <p className="descripcion">
               Visualizá y gestioná los informes del sistema para obtener un
               resumen de la actividad administrativa.
+            </p>
+          </Link>
+        </div>
+        <div className="tarjeta categorias">
+          <Link to="/grillaCategorias" className="tarjeta-link">
+            <FontAwesomeIcon icon={faLayerGroup} className="icono-tarjeta" />
+            <h3>Grilla Categorías</h3>
+            <p className="descripcion">
+              Administrá las categorías: creá, editá y eliminá categorías del
+              sistema.
             </p>
           </Link>
         </div>

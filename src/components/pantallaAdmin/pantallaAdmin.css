@@ -67,29 +67,33 @@
 
 /* Colores personalizados por sección */
 .tarjeta.usuarios {
-  background-color: #7b4ca0; 
+  background-color: #7f5fbf;
   color: #fefcc9;
 }
 
 .tarjeta.productos {
   background-color: #00ccbd;
-  color:  #fefcc9;
+  color: #fefcc9;
 }
 
 .tarjeta.pedidos {
   background-color: #4cba7d;
-  color:#fefcc9;
+  color: #fefcc9;
 }
 
 .tarjeta.promociones {
   background-color: #ff5987;
-  color:#fefcc9;
+  color: #fefcc9;
 }
 .tarjeta.informes {
-  background-color: #f4a261; 
+  background-color: #f4a261;
   color: #fefcc9;
 }
 
+.tarjeta.categorias {
+  background-color: #6c757d; /* gris elegante */
+  color: #fefcc9;
+}
 
 /* Animación */
 @keyframes fadeIn {
@@ -109,6 +113,11 @@
 }
 
 @keyframes parpadeo {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

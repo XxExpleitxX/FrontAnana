@@ -27,6 +27,7 @@ import ClienteCompras from "../components/ClienteCompras/ClienteCompras";
 import VentaCliente from "../components/ventaCliente/VentaCliente";
 import GrillaInforme from "../components/grillas/GrillaInforme";
 import VerVenta from "../components/verVenta/VerVenta";
+import GrillaCategorias from "../components/grillas/grillaCategorias";
 
 const AppRoutes = () => {
   return (
@@ -83,6 +84,16 @@ const AppRoutes = () => {
           </RoleRoute>
         }
       />
+
+      <Route
+        path="/grillaCategorias"
+        element={
+          <RoleRoute allowedRoles={["ADMIN"]}>
+            <GrillaCategorias />
+          </RoleRoute>
+        }
+      />
+
       <Route
         path="/grillaProducts"
         element={
